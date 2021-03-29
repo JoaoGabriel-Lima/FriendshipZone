@@ -49,7 +49,16 @@ export default function Home() {
     <div>
       <Head>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></link>
-        <title>Create Next App</title>
+        <title>FriendshipZone do Jão</title>
+        <meta property="og:title" content="O seu cantinho no meu coração" />
+        <meta property="og:locale" content="pt_BR"></meta>
+        <meta property="og:site_name" content="FriendshipZone"></meta>
+        <meta property="og:url" content="https://friendshipzone.vercel.app/" />
+        <meta property="og:type" content="website"></meta>
+        <meta property="og:description" content="Eu criei este lugar para que possam se lembrar o como eu gosto de todos vocês e como me fazem felizes todos os dias da minha vida."></meta>
+        <meta property="og:image" content="/icon.png" />
+        <meta name="theme-color" content="#FFCB5F"></meta>
+        <meta charSet="UTF-8"></meta>
       </Head>
 
       <main>
@@ -71,7 +80,9 @@ export default function Home() {
           </label>
 
           <div className="bottombar w-full">
-            <h4 className="text-xs text-center font-semibold">{"Made with all of my <3 by Jão"}</h4>
+            <h4 className="text-xs text-center font-semibold">Made with all of my </h4>
+            <FontAwesomeIcon icon={['fas', 'heart']} className="w-3 mr-1 ml-1 text-black hover:text-red-400 cursor-pointer" /> 
+            <h4 className="text-xs text-center font-semibold">by Jão</h4>
           </div>
 
           <ellipse className="ellipse ellipse1 hidden dark:block"></ellipse>

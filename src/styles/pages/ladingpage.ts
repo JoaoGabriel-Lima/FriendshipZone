@@ -106,6 +106,7 @@ export const StyleContainer = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: row;
         /* align-self: flex-end; */
         /* float: bottom; */
     }
@@ -116,7 +117,7 @@ export const StyleContainer = styled.div`
         width: 300px;
         height: 300px;
         background-color: #A764FC;
-        opacity: .92;
+        opacity: .5;
         border-radius: 500px;
         filter: blur(264px);
         position: absolute;
