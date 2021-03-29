@@ -170,6 +170,8 @@ export const StyleContainer = styled.div`
         background-color: #ccc;
         -webkit-transition: 0.4s;
         transition: 0.4s;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
     }
 
     .slider:before {
