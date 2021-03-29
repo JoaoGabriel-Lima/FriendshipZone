@@ -217,7 +217,9 @@ export const StyleContainer = styled.div`
     .slider.round:before {
         border-radius: 50%;
     }
-
+    #nameinput {
+        max-width: 700px;
+    }
 
     @media only screen and (min-height: 913px) {
         height: 100vh;

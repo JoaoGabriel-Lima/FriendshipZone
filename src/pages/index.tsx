@@ -85,8 +85,8 @@ export default function Home() {
             <h4 className="text-xs text-center font-semibold">by Jão</h4>
           </div>
 
-          <ellipse className="ellipse ellipse1 hidden dark:block"></ellipse>
-          <ellipse className="ellipse ellipse2 hidden dark:block"></ellipse>
+          <ellipse className="ellipse ellipse1 hidden"></ellipse>
+          <ellipse className="ellipse ellipse2 hidden"></ellipse>
         </StyleContainer>
       </main>
     </div>
