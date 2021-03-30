@@ -80,10 +80,14 @@ export default function Home() {
           </label>
 
           <div className="bottombar w-full">
-            <h4 className="text-xs text-center font-semibold">Made with all of my </h4>
+            <a target="_blank" href="https://github.com/JoaoGabriel-Lima" rel="noopener noreferrer">
+              <h4 className="text-xs text-center font-semibold">Made with all of my </h4>
+            </a>
             <FontAwesomeIcon icon={['fas', 'heart']} className="w-3 mr-1 ml-1 text-black hover:text-red-400 cursor-pointer" /> 
-            <h4 className="text-xs text-center font-semibold">by Jão</h4>
-          </div>
+            <a target="_blank" href="https://github.com/JoaoGabriel-Lima" rel="noopener noreferrer">
+              <h4 className="text-xs text-center font-semibold">by <span className="underline">Jão</span></h4>
+            </a>
+          </div> 
 
           <ellipse className="ellipse ellipse1 hidden"></ellipse>
           <ellipse className="ellipse ellipse2 hidden"></ellipse>
