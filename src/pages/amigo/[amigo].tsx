@@ -29,15 +29,17 @@ export default function UserPage() {
     })
     function change(resposta) {
         if(resposta != undefined) {
+            document.getElementById("loading").classList.add("hidden");
             document.getElementById("favoritecolor").innerHTML = "Sua cor favorita é " + resposta;
         } else {
-            document.getElementById("favoritecolor").innerHTML = "Error a carregar os dados";
+            // document.getElementById("favoritecolor").classList.add("hidden");
         }
     }
     return (
-        <div>
-            <h1 className="text-5xl text-purple-700">Olá {capitalize(name)}</h1>
+        <div className="flex items-center content-center flex-col">
+            <h1 className="text-3xl text-purple-700">Olá {capitalize(name)}</h1>
             <h2 id="favoritecolor"></h2>
+            <div className='bg-gray-300 animate-pulse w-60 h-7 rounded' id="loading"></div>
         </div>
     )
 }
