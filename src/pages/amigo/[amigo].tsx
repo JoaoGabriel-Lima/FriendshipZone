@@ -8,6 +8,10 @@ config.autoAddCss = false;
 library.add(fas, fab);
 import axios from 'axios'
 
+// Luan,
+// Obrigado por fazer essa idéia surgir <3
+
+// Programado por João Gabriel | © Copyright 2021 - Todos os direitos reservados
 
 export default function UserPage() {
     
