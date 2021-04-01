@@ -16,34 +16,45 @@ import url from 'url';
 
 // Programado por João Gabriel | © Copyright 2021 - Todos os direitos reservados
 
-export async function getServerSideProps(context) {
+import useSWR from 'swr'
+import fetch from 'unfetch'
+const fetcher = url => fetch(url).then(r => r.json())
 
-        const name = context.query.amigo
-        const result = await axios.post('/api/getpage', {amigo : name})
-        const data = await result
+function LoadFacts() {
+    const router = useRouter()
+    const name = router.query.amigo
+  const { data, error } = useSWR(`/api/${name}`, fetcher)
 
-        return {
-            props: {data}
-        }
-        // try {
-            
-        //     let res = await axios.post('/api/getpage', {amigo : name})
-        //     const resultado = res.data.funfacts
-        //     return {
-        //         props: {
-        //             conteudo: resultado
-        //         }
-        //     }
-        // } catch (err) {
-        //     console.log(err)
-        //     return {
-        //         props: {
-        //             conteudo: "Error"
-        //         }
-        //     }
-        // }
+  if (error) return <div>failed to load</div>
+  if (!data) return (
+      <div className="w-full h-20 bg-gray-200 mb-3 rounded-md dark:bg-opacity-10 factsbox flex items-center justify-center animate-pulse">
 
+      </div>
+  )
+    if(data.funfacts != undefined) {
+        return (
+            data.funfacts.map((facts, index) => (
+                <div key={index} className="w-full h-20 bg-gray-200 mb-3 rounded-md dark:bg-opacity-10 factsbox flex items-center justify-center">
+                    <div className="centerbox">
+                        <h1 className="dark:text-white font-semibold question mb-1">{facts.pergunta}</h1>
+                        <h3 className="dark:text-white opacity-80 font-normal answer text-xs">{facts.resposta}</h3>
+                    </div>
+                </div>
+            ))
+        )    
+
+    } else {
+        return (
+            <div className="w-full h-20 bg-gray-200 mb-3 rounded-md dark:bg-opacity-10 factsbox flex items-center justify-center">
+                <div className="centerbox">
+                    <h1 className="dark:text-white font-semibold question mb-1">Error ao carregar os dados</h1>
+                    <h3 className="dark:text-white opacity-80 font-normal answer text-xs">Dados não existente ou não foi possível se conectar ao banco de dados</h3>
+                </div>
+            </div>
+        )
+    }
 }
+
 
 export default function UserPage(props) {
     var currentTheme = "";
@@ -59,17 +70,11 @@ export default function UserPage(props) {
     
     const router = useRouter()
     const name = router.query.amigo
-    console.log(name)
+    // console.log(name)
     function capitalize(s) {
         return s && s[0].toUpperCase() + s.slice(1);
     }
     var displayname = capitalize(name)
-
-        // const name = context.query.amigo
-    // (async function() {
-    //     const result = await axios.post('/api/getpage', {amigo : name})
-    //     const data = await result
-    // })
     return (
         <div>
             <Head>
@@ -99,41 +104,11 @@ export default function UserPage(props) {
                     </div>
                     <div className="iknowbox">
                         <h1 className="dark:text-white self-start text-2xl mb-5">Nesse tempo eu sei:</h1>
-                        {
-                            // console.log(props.conteudo)
-                            // renderFunFacts()
-                           <h1 className="dark:text-white">(props.data)</h1>
-                            // facts.map(product => (
-                            //     <h1>{product.pergunta}</h1>
-                            // ))
-                            // function loadfunfact(data) {
-                            // }
-                            // this.state.Posts
-                            // renderFunFacts()
-                        }
+                        {LoadFacts()}
+                        <h3 className="text-xs mt-5 dark:text-white font-normal underline text-center opacity-60">Entre muitas outras coisas a mais</h3>
                     </div>
                 </FriendStyle>
             </main>
         </div>
     )
 }
-
-// export const getServerSideProps = async (context) => {
-//     const router = useRouter()
-//     const name = context.query.amigo
-//     const fetchData = async () => await axios.post('/api/getpage', {amigo : name})
-//         .then(res => ({
-//         error: false,
-//         facts: res.data.funfacts,
-//         }))
-//         .catch(() => ({
-//             error: true,
-//             facts: null,
-//         }),
-//     );
-//     const data = await fetchData();
-//     console.log(`Dados: ${data.facts}`)
-//     return {
-//         props: data
-//     };
-// }

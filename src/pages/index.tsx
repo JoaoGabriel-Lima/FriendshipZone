@@ -43,6 +43,14 @@ if (typeof window !== "undefined") {
     }
   }
 })();
+const amigo = async e => {
+  e.preventDefault()
+  let input_name = (document.getElementById("nameinput") as HTMLInputElement).value.toLowerCase();
+  let router = `/amigo/${input_name}`
+  // console.log(router)
+  Router.push(router)
+  // 
+}
 
 export default function Home() {
   return (
@@ -69,7 +77,7 @@ export default function Home() {
           <h3 className="maindescription2 text-center text-black mt-4 text-sm font-medium opacity-90 dark:text-white">Eu criei este lugar para que possam se lembrar o como eu gosto de todos vocês e como me fazem felizes todos os dias da minha vida.</h3>
           <form>
             <input type="text" id="nameinput" className="bg-gray-100 dark:bg-white dark:bg-opacity-5 dark:text-white placeholder-black::placeholder dark:placeholder-white::placeholder" placeholder="Escreva o seu primeiro nome"></input>
-            <button type="button" id="buttoninput" className="font-medium text-center">Explorar o meu <br/> cantinho especial</button>
+            <button type="submit" id="buttoninput" className="font-medium text-center" onClick={amigo}>Explorar o meu <br/> cantinho especial</button>
           </form>
           <a className="text-center font-semibold text-xs underline text-black mt-6 mb-5 opacity-60 dark:opacity-70 dark:text-white dark:font-medium">Problemas? Fala comigo que eu resolvo!</a>
           

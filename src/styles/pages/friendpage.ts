@@ -58,4 +58,14 @@ export const FriendStyle = styled.div`
     .iknowbox {
         width: 90%;
     }
+
+    .factsbox {
+    }
+    .question {
+        
+    }
+    .centerbox {
+        /* background-color: red; */
+        width: 93%;
+    }
 `
