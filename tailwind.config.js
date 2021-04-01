@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       textOpacity: ['dark'],
       display: ['dark'],
+      opacity: ['dark'],
     },
   },
   plugins: [],

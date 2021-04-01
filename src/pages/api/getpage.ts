@@ -33,7 +33,7 @@ export default async (request, response) => {
     await collection.find({ amigo: amigo }).toArray(async function (err, results) {
         if (results.length > 0) {
             console.log("found")
-            return response.status(201).json({ ok: true, cor: results[0].corfavorita})
+            return response.status(201).json({ ok: true, funfacts: results[0].funfacts})
         } else {
             console.log("not found")
             return response.status(201).json({ ok: true, tem: false})
