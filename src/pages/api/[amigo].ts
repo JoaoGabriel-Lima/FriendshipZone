@@ -1,26 +1,3 @@
-// import { MongoClient, Db } from 'mongodb'
-// import url from 'url';
-// // import {useRouter} from 'next/router'
-// let cachedDb: Db = null;
-
-// async function connectToDatabase(uri: string) {
-
-//     if (cachedDb) {
-//         return Promise.resolve(cachedDb);
-//     }
-
-//     const client = await MongoClient.connect(uri, {
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true,
-//     })
-
-//     const dbName = url.parse(uri).pathname.substr(1);
-//     const db = client.db(dbName)
-//     cachedDb = db;
-//     return cachedDb;
-
-
-// }
 import {connectToDatabase} from '../../util/mongodb';
 export default async function handler(request, response) {
     const { amigo } = request.query

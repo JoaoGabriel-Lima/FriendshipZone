@@ -200,7 +200,7 @@ export const FriendStyle = styled.div`
         /* float: bottom; */
     }
     *:focus { outline: none; }
-    ${props => props.laranja && css`
+    ${props => props.theme.laranja && css`
         .accentcolortext {
             color: #E4A222 !important;
         } 
