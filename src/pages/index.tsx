@@ -15,8 +15,7 @@ if (typeof window !== "undefined") {
 if (currentTheme == "dark") {
   document.documentElement.classList.add("dark");
 }
-if (typeof window !== "undefined") {
-  document.getElementById("slider").addEventListener("click", function() {
+function darkupdatesis() {
     if(currentTheme == "dark"){
       document.documentElement.classList.toggle("dark");
       currentTheme = "light";
@@ -28,19 +27,26 @@ if (typeof window !== "undefined") {
     }
     
     console.log("changed")
+    
+}
+if (typeof window !== "undefined") {
+
+  // document.getElementById("slider").addEventListener("click", function() {
 
 
-  })
+  // })
 }
 (function () {
   if (typeof window !== "undefined") {
-    if (localStorage.getItem('theme') === 'dark') {
-        let slider = (document.getElementById('slider') as HTMLInputElement)
-        slider.checked = false;
-    } else {
-        let slider = (document.getElementById('slider') as HTMLInputElement)
-        slider.checked = true;
-    }
+    document.addEventListener("DOMContentLoaded", function() {
+      if (localStorage.getItem('theme') === 'dark') {
+          let slider = (document.getElementById('slider') as HTMLInputElement)
+          slider.checked = false;
+      } else {
+          let slider = (document.getElementById('slider') as HTMLInputElement)
+          slider.checked = true;
+      }
+    })
   }
 })();
 const amigo = async e => {
@@ -83,7 +89,7 @@ export default function Home() {
           
           {/* <div id="themetoggle">Trocar Tema</div> */}
           <label id="switch" className="switch">
-            <input type="checkbox" id="slider"/>
+            <input type="checkbox" id="slider" onClick={darkupdatesis}/>
             <span className="slider round"></span>
           </label>
 
@@ -97,8 +103,8 @@ export default function Home() {
             </a>
           </div> 
 
-          <ellipse className="ellipse ellipse1 hidden"></ellipse>
-          <ellipse className="ellipse ellipse2 hidden"></ellipse>
+          <div className="ellipse ellipse1 hidden"></div>
+          <div className="ellipse ellipse2 hidden"></div>
         </StyleContainer>
       </main>
     </div>
