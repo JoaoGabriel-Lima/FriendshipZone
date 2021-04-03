@@ -1,13 +1,8 @@
 async function fetchQuery(name) {
   const fetcher = url => fetch(url).then(r => r.json())
-  const env = process.env.NODE_ENV
+  // const env = process.env.NODE_ENV
   var url;
-  if(env == "development"){
-    url = `http://localhost:3000/api/${name}`
-  }
-  else if (env == "production"){
-    url = `https://friendshipzone.vercel.app/api/${name}`
-  }
+  url = `https://friendshipzone.vercel.app/api/${name}`
   const response = await fetcher(url)
   const data = await response
   return data
