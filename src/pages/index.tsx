@@ -54,7 +54,11 @@ const amigo = async e => {
   let input_name = (document.getElementById("nameinput") as HTMLInputElement).value.toLowerCase();
   let router = `/amigo/${input_name}`
   // console.log(router)
-  Router.push(router)
+  if(router == "/amigo/") {
+    Router.push("/ops")
+  } else {
+    Router.push(router)
+  }
   // 
 }
 

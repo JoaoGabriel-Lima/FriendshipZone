@@ -100,7 +100,7 @@ export default function UserPage(props) {
 
     if(!(typeof window === "undefined")) { 
         if(props.content.displayname == undefined || props.content.dataqueconhecemos == undefined || props.content.textos == undefined || props.content.aniversario == undefined || props.content.corfavorita == undefined) {
-            Router.push("/")
+            Router.push("/ops")
         }
     }
     async function gohome() {
@@ -113,7 +113,7 @@ export default function UserPage(props) {
         console.log(res.data)
         if(!(typeof window === "undefined")) { 
             
-            Router.push("/")
+            Router.push("/ops")
         }
     }
     // console.log(props.content)
