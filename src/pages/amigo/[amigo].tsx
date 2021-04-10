@@ -75,10 +75,10 @@ function LoadFacts() {
     if(data.funfacts != undefined) {
         return (
             data.funfacts.map((facts, index) => (
-                <div key={index} className="w-full h-20 bg-gray-200 mb-3 rounded-md dark:bg-opacity-10 factsbox flex items-center justify-center">
+                <div key={index} className="w-full bg-gray-200 mb-3 rounded-md dark:bg-opacity-10 factsbox flex items-center justify-center">
                     <div className="centerbox">
-                        <h1 className="dark:text-white font-semibold question mb-1" dangerouslySetInnerHTML={{__html: facts.pergunta}}></h1>
-                        <h3 className="dark:text-white opacity-80 font-normal answer text-xs" dangerouslySetInnerHTML={{__html: facts.resposta}}></h3>
+                        <h1 className="dark:text-white font-semibold mt-2 question mb-1" dangerouslySetInnerHTML={{__html: facts.pergunta}}></h1>
+                        <h3 className="dark:text-white opacity-80 mb-2 font-normal answer text-xs" dangerouslySetInnerHTML={{__html: facts.resposta}}></h3>
                     </div>
                 </div>
             ))
@@ -113,7 +113,7 @@ export default function UserPage(props) {
         console.log(res.data)
         if(!(typeof window === "undefined")) { 
             
-            Router.push("/ops")
+            Router.push("/")
         }
     }
     // console.log(props.content)
@@ -216,14 +216,14 @@ export default function UserPage(props) {
                 <FriendStyle theme={colortheme} >
                     <div id="yellowbar"></div>
                     <div id="namebox" className="mb-10 accentbackground defaultshadow">
-                        <h2>{props.content.displayname}</h2>
+                        <h2 className="defaultshadow2">{props.content.displayname}</h2>
                     </div>
                     <img id="illustration" src={`/colors/${props.content.corfavorita}.svg`} className="mb-7"></img>
                     <h1 className="text-center maintitle font-semibold dark:text-white" dangerouslySetInnerHTML={{__html: props.content.textos.frasefavorita}}></h1>
                     <h3 className="text-center maindescription font-medium dark:text-white text-opacity-50 dark:text-opacity-75" dangerouslySetInnerHTML={{__html: props.content.textos.descricao}}></h3>
                     <div className="timeleft bg-red-400 bg-opacity-60 dark:bg-opacity-30 flex items-center">
                         {
-                            <h3 className="dark:text-white font-semibold text-2xl ml-4">Faz...<br/><span className="accentcolortext">{time[0]} semanas</span>,
+                            <h3 className="dark:text-white font-semibold text-2xl ml-4 mt-2 mb-2">Faz...<br/><span className="accentcolortext">{time[0]} semanas</span>,
                             <br/><span className="accentcolortext">{time[1]} dias</span>,
                             <br/><span className="accentcolortext">{time[2]} horas</span> e
                             <br/><span className="accentcolortext">{time[3]} minutos</span>

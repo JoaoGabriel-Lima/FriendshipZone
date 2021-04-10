@@ -17,6 +17,7 @@ export const FriendStyle = styled.div`
     }
     #namebox {
         height: 43px;
+        /* max-width: 80%; */
         background-color: #FF565E;
         display: flex;
         justify-content: center;
@@ -26,8 +27,8 @@ export const FriendStyle = styled.div`
     }
     #namebox h2{
         font-size: 22px;
-        padding-left: 70px;
-        padding-right: 70px;
+        margin-left: 20px;
+        margin-right: 20px;
         text-shadow: 0px 1px 0px #FFB61D;
         color: white;
     }
@@ -65,7 +66,7 @@ export const FriendStyle = styled.div`
         margin-bottom: 31px;
         border-radius: 11px;
         width: 90%;
-        height: 215px;
+        min-height: 215px;
         /* background-color: #643D3C; */
     }
     .iknowbox {
@@ -73,6 +74,7 @@ export const FriendStyle = styled.div`
     }
 
     .factsbox {
+        min-height: 80px;
     }
     .question {
         
@@ -481,6 +483,12 @@ export const FriendStyle = styled.div`
         .animation:active {
             top:4px;
             box-shadow: 0px 1px 0px 0px rgb(188, 111, 194);
+        }
+        .defaultshadow {
+            box-shadow: 0px 4px 0px 0px rgb(188, 111, 194) !important;
+        }
+        .defaultshadow2 {
+            text-shadow: 0px 1px 0px rgb(188, 111, 194) !important;
         }
     `}
 `
