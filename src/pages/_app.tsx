@@ -1,16 +1,28 @@
-import GlobalStyle from '../styles/global'
-import theme from '../styles/theme'
-import 'tailwindcss/tailwind.css'
-import {ThemeProvider} from 'styled-components'
+import theme from "../styles/theme";
+import { ThemeProvider } from "styled-components";
 
-function MyApp({ Component, pageProps }) {
-    return (
-      <ThemeProvider theme={theme}>
+/* eslint-disable react/prop-types */
+/* eslint-disable require-jsdoc */
+import "../styles/globals.css";
+// import type { AppProps } from "next/app";
+import React from "react";
+// import { AppProps } from "next/app";
+
+import { AppProps } from "next/app";
+import Head from "next/head";
+import { AnimatePresence } from "framer-motion";
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <ThemeProvider theme={theme}>
+      <Head>
+        <title>JãoSpace</title>
+      </Head>
+      <AnimatePresence mode="wait" initial={true}>
         <Component {...pageProps} />
-        <GlobalStyle/>
-      </ThemeProvider>
-    )
-
+      </AnimatePresence>
+    </ThemeProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;

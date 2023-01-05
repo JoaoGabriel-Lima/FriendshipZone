@@ -1,5 +1,5 @@
-import { MongoClient, Db } from 'mongodb'
-import url from 'url';
+import { MongoClient, Db } from "mongodb";
+import url from "url";
 
 // let cachedDb: Db = null;
 
@@ -12,7 +12,7 @@ import url from 'url';
 //     const client = await MongoClient.connect(uri, {
 //         useNewUrlParser: true,
 //         useUnifiedTopology: true,
-//     }) 
+//     })
 
 //     const dbName = url.parse(uri).pathname.substr(1);
 
@@ -40,28 +40,40 @@ import url from 'url';
 //         }
 //     });
 // }
-import {connectToDatabase} from '../../util/mongodb';
+import { connectToDatabase } from "../../../util/mongodb";
 export default async function handler(request, response) {
-    const {db} = await connectToDatabase();
-    if(request.method == 'GET'){
-        const { amigo } = request.query
-        const data = await db.collection("friends").find({ amigo: amigo }).toArray();
-        if (data.length > 0) {
-            return response.status(201).json({ ok: "true", msg: "Obtido com Sucesso",textarea: data[0].textarea})
-        } else {
-            return response.status(201).json({ ok: false})
-        }
+  const { db } = await connectToDatabase();
+  if (request.method == "GET") {
+    const { amigo } = request.query;
+    const data = await db
+      .collection("friends")
+      .find({ amigo: amigo })
+      .toArray();
+    if (data.length > 0) {
+      return response
+        .status(201)
+        .json({
+          ok: "true",
+          msg: "Obtido com Sucesso",
+          textarea: data[0].textarea,
+        });
+    } else {
+      return response.status(201).json({ ok: false });
     }
-    if(request.method == 'POST'){
-        const { text, amigo } = request.body
-        const data = await db.collection("friends").find({ amigo: amigo }).toArray();
-        if (data.length > 0) {
-            await db.collection("friends").updateOne({amigo: amigo}, {$set: {textarea: text}});
-            return response.status(201).json({ ok: "true", msg: "Salvo"})
-        } else {
-
-            return response.status(201).json({ ok: false})
-        }
+  }
+  if (request.method == "POST") {
+    const { text, amigo } = request.body;
+    const data = await db
+      .collection("friends")
+      .find({ amigo: amigo })
+      .toArray();
+    if (data.length > 0) {
+      await db
+        .collection("friends")
+        .updateOne({ amigo: amigo }, { $set: { textarea: text } });
+      return response.status(201).json({ ok: "true", msg: "Salvo" });
+    } else {
+      return response.status(201).json({ ok: false });
     }
-
+  }
 }
