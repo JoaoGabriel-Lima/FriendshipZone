@@ -4,19 +4,6 @@ import Footer from "../../components/footer";
 
 import { BuildStyle } from "../../styles/pages/buildstyle";
 export default function BuildPage() {
-  var currentTheme = "";
-  if (typeof window !== "undefined") {
-    currentTheme = localStorage.getItem("theme");
-  }
-  if (currentTheme == "dark") {
-    document.documentElement.classList.add("dark");
-  }
-  if (typeof window !== "undefined") {
-  }
-
-  function gotohome() {
-    Router.push("/");
-  }
   const variants = {
     hidden: { opacity: 0 },
     enter: { opacity: 1 },
@@ -39,12 +26,12 @@ export default function BuildPage() {
             Ops, parece que sua página ainda está em{" "}
             <span className="accentcolor">construção</span> {":("}
           </h1>
-          <h3 className="dark:text-white text-center text-xs mt-5 description font-medium mb-8 opacity-75">
+          <h3 className="dark:text-white text-center text-sm mt-5 description font-medium mb-8 opacity-75">
             Caso houver problemas para entrar, por favor entre em contato
             comigo, eu te ajudo a resolver!
           </h3>
           <button
-            onClick={gotohome}
+            onClick={() => Router.push("/")}
             className="dark:text-white font-medium text-center px-5"
             id="backtohome"
           >

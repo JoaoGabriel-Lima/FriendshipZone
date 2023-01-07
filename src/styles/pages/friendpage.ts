@@ -7,7 +7,7 @@ export const FriendStyle = styled.div`
   flex-direction: column;
   font-family: "Inter";
   font-weight: 600;
-  max-width: 900px;
+  max-width: 700px;
   /* * {
         transition: 1s;
     } */
@@ -18,20 +18,21 @@ export const FriendStyle = styled.div`
     margin-bottom: 40px;
   }
   #namebox {
-    height: 43px;
-    /* max-width: 80%; */
+    min-height: 48px;
+    width: 80%;
+    max-width: 400px;
     background-color: #ff565e;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 6px;
-    box-shadow: 0px 4px 0px 0px #ffb61d;
+    /* box-shadow: 0px 4px 0px 0px #ffb61d; */
   }
   #namebox h2 {
-    font-size: 22px;
+    /* font-size: 22px; */
     margin-left: 20px;
     margin-right: 20px;
-    text-shadow: 0px 1px 0px #ffb61d;
+    text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.4);
     color: white;
   }
   #illustration {
@@ -40,12 +41,16 @@ export const FriendStyle = styled.div`
     max-width: 500px;
   }
   .maintitle {
-    width: 90%;
-    font-size: 18px;
+    width: 80%;
+    /* font-size: 18px; */
+  }
+  .accentcolortextlight {
+    color: #ff565e;
   }
   .accentcolortext {
     color: #ff565e;
   }
+
   .accentbackground {
     background-color: #ff565e;
   }
@@ -59,7 +64,7 @@ export const FriendStyle = styled.div`
   }
   .maindescription {
     margin-top: 22px;
-    font-size: 12px;
+    font-size: 15px;
     width: 90%;
   }
   .timeleft {
@@ -68,6 +73,7 @@ export const FriendStyle = styled.div`
     border-radius: 11px;
     width: 90%;
     min-height: 215px;
+
     /* background-color: #643D3C; */
   }
   .iknowbox {
@@ -75,14 +81,17 @@ export const FriendStyle = styled.div`
   }
 
   .factsbox {
+    width: 100%;
+    padding: 20px 15px;
     min-height: 80px;
   }
-  .question {
+  .question + .answer {
+    margin-top: 5px;
   }
 
   .centerbox {
     /* background-color: red; */
-    width: 93%;
+    width: 100%;
   }
   #calendar {
     width: 100%;
@@ -195,6 +204,10 @@ export const FriendStyle = styled.div`
   ${(props) =>
     props.theme.laranja &&
     css`
+      .textTheme {
+        color: black;
+      }
+
       .accentcolortext {
         color: #e4a222 !important;
       }
@@ -234,6 +247,12 @@ export const FriendStyle = styled.div`
   ${(props) =>
     props.theme.amarelo &&
     css`
+      .textTheme {
+        color: black;
+      }
+      .calendarTextTheme {
+        color: black;
+      }
       .accentcolortext {
         color: #e8bb5e !important;
       }
@@ -277,6 +296,9 @@ export const FriendStyle = styled.div`
     ${(props) =>
     props.theme.verde &&
     css`
+      .textTheme {
+        color: black;
+      }
       .accentcolortext {
         color: #73bf67 !important;
       }

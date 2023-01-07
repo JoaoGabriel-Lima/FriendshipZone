@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const StyleContainer = styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-  justify-content: center;
+  justify-content: space-between;
   display: flex;
   align-items: center;
   /* height: 100vh; */
 
+  min-height: 100%;
   width: 100%;
   max-width: 100vw;
   flex-direction: column;
@@ -81,7 +82,7 @@ export const StyleContainer = styled.div`
     background-color: #a764fc;
     border-radius: 8px;
     box-shadow: 0px 4px 0px 0px #7149c6;
-    font-size: 13px;
+    /* font-size: 13px; */
     text-align: center;
     transition: all 175ms linear !important;
     -webkit-transition: all 175ms linear !important;

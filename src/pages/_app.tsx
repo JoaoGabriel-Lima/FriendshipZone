@@ -13,6 +13,13 @@ import Head from "next/head";
 import { AnimatePresence } from "framer-motion";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  if (typeof window !== "undefined") {
+    let currentTheme = localStorage.getItem("theme");
+    currentTheme == "dark"
+      ? document.documentElement.classList.add("dark")
+      : document.documentElement.classList.remove("dark");
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Head>

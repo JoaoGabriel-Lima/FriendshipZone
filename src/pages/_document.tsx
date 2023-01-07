@@ -22,8 +22,8 @@ export default function Document() {
             momentos e compartilhá-los com outras pessoas que apreciem esses
             momentos tanto quanto nós."
         ></meta>
-        <meta property="og:image" content="/icon.png" />
-        <meta name="theme-color" content="#FFCB5F"></meta>
+        {/* <meta property="og:image" content="/icon.png" /> */}
+        <meta name="theme-color" content="#bb64fe"></meta>
         <meta charSet="UTF-8"></meta>
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
